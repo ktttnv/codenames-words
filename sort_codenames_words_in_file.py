@@ -1,4 +1,4 @@
-f = open('original_codenames_dictionary.txt', 'r+')
+f = open('dictionaries/original_codenames_dictionary.txt', 'r+')
 
 
 def remove_new_line_symbol(line):
