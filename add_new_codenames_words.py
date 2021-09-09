@@ -44,14 +44,19 @@ def is_word_in_russian_dictionary(target_word):
 
 
 def example():
+    print('Мы начинаем! Введите слова, которые Вы бы хотели добавить в новый словарь для игры Codenames. Чтобы '
+          'закончить добавление слов, введите 0.')
+
     while True:
-        reg_exp = '[а-яё` -]+'
+        reg_exp = '[а-я` -]+'
         max_word_length = 15
 
         try:
-            test_str = input("Введите новое слово: ").lower()
-
-            if re.fullmatch(reg_exp, test_str) is None:
+            test_str = input("Введите новое слово: ").lower().replace('ё', 'е')
+            if test_str == "0":
+                print("Bye!")
+                break
+            elif re.fullmatch(reg_exp, test_str) is None:
                 raise ValueDoesNotMatchRegExpError
             elif len(test_str) > max_word_length:
                 raise ValueTooLong
@@ -61,22 +66,19 @@ def example():
                 answer_to_add = input('Данного слова нет в словаре русских слов (существительных). Вы уверены, '
                                       'что хотите добавить это слово? Введите "да", если согласны: ')
                 if answer_to_add == "да":
-                    print('Ok, we are adding this')
+                    print('Ok, we are adding this:', test_str)
                 else:
                     print('Ok, we will not add this')
             else:
-                print(test_str)
+                print('Ok, we are adding this:', test_str)
 
         except ValueDoesNotMatchRegExpError:
-            print('Допустимые символы: буквы русского алфавита, дефис, пробел и апостроф. Пожалуйста, '
+            print('Допустимые символы - буквы русского алфавита, дефис, пробел и апостроф. Пожалуйста, '
                   'используйте только их.')
         except ValueTooLong:
             print('Длина слова не должна превышать', max_word_length, 'символов.')
         except ValueIsInCodenamesDictionary:
             print('Данное слово уже есть в списке слов Codenames.')
-        else:
-            print("выходим из цикла!")
-            break
 
 
 example()
