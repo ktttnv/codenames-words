@@ -1,5 +1,6 @@
 FROM python:3.8
 COPY sort_codenames_words_in_file.py .
+COPY helper.py .
 CMD ["python", "sort_codenames_words_in_file.py"]
 
 
