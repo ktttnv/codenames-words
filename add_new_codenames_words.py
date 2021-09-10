@@ -21,26 +21,21 @@ class ValueTooLong(Error):
 class ValueIsInCodenamesDictionary(Error):
     """Raised when the input value is already in codenames dictionary"""
     pass
-#
-#
-# class ValueIsNotInRussianDictionary(Error):
-#     """Raised when the input value is not in Russian dictionary"""
-#     pass
 
 
-ocd = open('dictionaries/original_codenames_dictionary.txt', 'r')
+ocd = open('dictionaries/original_codenames_dictionary.txt', 'r', encoding='utf-8')
 codenames_words = list(map(helper.remove_new_line_symbol, ocd.readlines()))
 
-rnd = open('dictionaries/russian_nouns_dictionary.txt', 'r')
+rnd = open('dictionaries/russian_nouns_dictionary.txt', 'r', encoding='utf-8')
 russian_words = list(map(helper.remove_new_line_symbol, rnd.readlines()))
 
 
 def is_word_in_codenames_dictionary(target_word):
-    return helper.bin_search(codenames_words, target_word)
+    return helper.has_item_in_sorted_list(codenames_words, target_word)
 
 
 def is_word_in_russian_dictionary(target_word):
-    return helper.bin_search(russian_words, target_word)
+    return helper.has_item_in_sorted_list(russian_words, target_word)
 
 
 def example():

@@ -2,7 +2,7 @@ def remove_new_line_symbol(line):
     return line[:-1] if line[-1] == '\n' else line
 
 
-def bin_search(lst, target):
+def find_index_in_sorted_list(lst, target):
     left_ind = 0
     right_ind = len(lst)
 
@@ -17,10 +17,10 @@ def bin_search(lst, target):
     right_ind = right_ind - 1
 
     if lst[right_ind] == target:
-        # return right_ind
-        return True
+        return right_ind
 
-    # return -1
-    return False
+    return -1
 
 
+def has_item_in_sorted_list(lst, target):
+    return find_index_in_sorted_list(lst, target) != -1
