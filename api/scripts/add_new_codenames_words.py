@@ -1,6 +1,6 @@
 import re
 import os.path
-from api.modules import errors
+from api.models import errors
 from api.helpers import helper
 
 ocd = open(os.path.dirname(__file__) + '/../dictionaries/original_codenames_dictionary.txt', 'r', encoding='utf-8')
