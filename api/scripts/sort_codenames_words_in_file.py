@@ -1,6 +1,7 @@
-import helper
+import os.path
+from api.helpers import helper
 
-f = open('dictionaries/original_codenames_dictionary.txt', 'r+')
+f = open(os.path.dirname(__file__) + '/../dictionaries/original_codenames_dictionary.txt', 'r+')
 
 all_words = list(map(helper.remove_new_line_symbol, f.readlines()))
 all_words.sort()
