@@ -1,4 +1,5 @@
-import helper
+import os.path
+from api.helpers import helper
 
 
 def change_all_yo_letters_in_file(file_path):
@@ -11,4 +12,4 @@ def change_all_yo_letters_in_file(file_path):
     file_data.write('\n'.join(all_lines_updated))
 
 
-change_all_yo_letters_in_file('dictionaries/russian_nouns_dictionary.txt')
+change_all_yo_letters_in_file(os.path.dirname(__file__) + '/../dictionaries/russian_nouns_dictionary.txt')

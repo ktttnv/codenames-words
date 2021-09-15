@@ -1,11 +1,12 @@
 import re
-import helper
-import errors
+import os.path
+from api.modules import errors
+from api.helpers import helper
 
-ocd = open('dictionaries/original_codenames_dictionary.txt', 'r', encoding='utf-8')
+ocd = open(os.path.dirname(__file__) + '/../dictionaries/original_codenames_dictionary.txt', 'r', encoding='utf-8')
 codenames_words = list(map(helper.remove_new_line_symbol, ocd.readlines()))
 
-rnd = open('dictionaries/russian_nouns_dictionary.txt', 'r', encoding='utf-8')
+rnd = open(os.path.dirname(__file__) + '/../dictionaries/russian_nouns_dictionary.txt', 'r', encoding='utf-8')
 russian_words = list(map(helper.remove_new_line_symbol, rnd.readlines()))
 
 
